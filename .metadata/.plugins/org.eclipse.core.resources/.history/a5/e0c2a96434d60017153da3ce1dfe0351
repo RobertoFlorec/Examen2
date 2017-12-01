@@ -39,7 +39,7 @@
 
 int main(void) {
 
-	UART_SetPCR(UART_0);
+	UART_setPCR(UART_0);
 
     while(1) {
 

@@ -33,13 +33,13 @@
  * @brief   Application entry point.
  */
 #include <stdio.h>
-#include "UART.h"
+
 #include "MK64F12.h"
 
 
 int main(void) {
 
-	UART_SetPCR(UART_0);
+	UART_setPCR(UART_0);
 
     while(1) {
 

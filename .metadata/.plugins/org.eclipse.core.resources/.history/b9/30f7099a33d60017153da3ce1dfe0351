@@ -9,8 +9,10 @@
  */
 
 #include "UART.h"
-#include "NVIC.h"
-#include "GPIO.h"
+#include "Nvic.h"
+//#include "GlobalFunctions.h"
+#include "gpio.h"
+#include "TeraTerm.h"
 
 
 UART_MailBoxType UART0_MailBox;
@@ -265,21 +267,20 @@ void UART0_RX_TX_IRQHandler()
 
 uint8 stateCheck(void){
 //	if(UART0_MailBox.flag){
-//		if((UART0_MailBox.mailBox >= 0x31) && (UART0_MailBox.mailBox <= 0x34)){
-//			return UART0_MailBox.mailBox;
-//		}
-//		else if(ESC == UART0_MailBox.mailBox){
-//			return ESC;
-//		}
-//		else if(ENTER == UART0_MailBox.mailBox){
-//			return ENTER;
-//		}else{
-//			return 0x30;
-//		}
+		if((UART0_MailBox.mailBox >= 0x31) && (UART0_MailBox.mailBox <= 0x34)){
+			return UART0_MailBox.mailBox;
+		}
+		else if(ESC == UART0_MailBox.mailBox){
+			return ESC;
+		}
+		else if(ENTER == UART0_MailBox.mailBox){
+			return ENTER;
+		}else{
+			return 0x30;
+		}
 //	}else{
 //		return 0x30;
 //	}
-	return 0;
 }
 
 BooleanType checkMailBoxFlag(void){
