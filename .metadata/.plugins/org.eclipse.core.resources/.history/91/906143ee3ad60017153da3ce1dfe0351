@@ -21,8 +21,6 @@ void init(void){
 }
 
 void convertToMorse(uint8 text){
-
-	/**Llamadas individuales al pit para generar los retrasos por cada letra*/
 	switch(text){
 	case a:
 		break;

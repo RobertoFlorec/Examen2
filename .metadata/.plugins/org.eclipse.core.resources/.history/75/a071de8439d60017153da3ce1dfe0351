@@ -22,64 +22,8 @@ void init(void){
 
 void convertToMorse(uint8 text){
 
-	/**Llamadas individuales al pit para generar los retrasos por cada letra*/
-	switch(text){
-	case a:
-		break;
-	case b:
-		break;
-	case c:
-		break;
-	case d:
-		break;
-	case e:
-		break;
-	case f:
-		break;
-	case g:
-		break;
-	case h:
-		break;
-	case i:
-		break;
-	case j:
-		break;
-	case k:
-		break;
-	case l:
-		break;
-	case m:
-		break;
-	case n:
-		break;
-	case o:
-		break;
-	case p:
-		break;
-	case q:
-		break;
-	case r:
-		break;
-	case s:
-		break;
-	case t:
-		break;
-	case u:
-		break;
-	case v:
-		break;
-	case w:
-		break;
-	case x:
-		break;
-	case y:
-		break;
-	case z:
-		break;
-default:
-	break;
-}
 
+convert(text);
 
 }
 

@@ -34,6 +34,7 @@
 #define x 0x78
 #define y 0x79
 #define z 0x7A
+#define
 #define ENTER 0X0D
 
 void convertToMorse(uint8 text);

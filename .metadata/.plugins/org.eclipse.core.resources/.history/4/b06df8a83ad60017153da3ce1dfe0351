@@ -36,7 +36,7 @@
 #include "UART.h"
 #include "MK64F12.h"
 #include "GlobalFunctions.h"
-#include "CONVERSION.h"
+
 int main(void) {
 	init();
 
@@ -47,7 +47,7 @@ int main(void) {
 	/***********************************************************/
 			static uint8 text[100]; /*! Arreglo para guardar lo que se escriba*/
 			static uint8 textCounter = 0;
-			static uint8 counter;
+			static uint8 i;
 			uint8 Data;
 			while(1){
 			UART_putString(UART_0,"\033[2;10H");/** Comando para posicionar el cursor en la posici�n x e y */
@@ -64,7 +64,7 @@ int main(void) {
 						}
 						if(ENTER == Data){/*!cuando se presiona ENTER se guardan los valores y se rompe el loop*/
 
-							for(counter = 0; counter < textCounter; counter++){
+							for(i = 0; i < textCounter; i++){
 								convertToMorse(text[i]);
 								delay(65000);
 							}

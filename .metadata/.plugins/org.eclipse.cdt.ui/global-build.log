@@ -630,3 +630,333 @@ collect2: error: ld returned 1 exit status
       SRAM_LOWER:          0 GB        64 KB      0.00%
         FLEX_RAM:          0 GB         4 KB      0.00%
 make: *** [segundo_parcial.axf] Error 1
+19:46:59 **** Incremental Build of configuration Debug for project segundo_parcial ****
+make -r -j3 all 
+Building file: ../source/CONVERSION.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DCR_INTEGER_PRINTF -DSDK_DEBUGCONSOLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -DSDK_OS_BAREMETAL -DFSL_RTOS_BM -DCPU_MK64FN1M0VLL12 -DCPU_MK64FN1M0VLL12_cm4 -D__REDLIB__ -I"/Sistemas_Embebidos/Examen2/segundo_parcial/source" -I"/Sistemas_Embebidos/Examen2/segundo_parcial" -I"/Sistemas_Embebidos/Examen2/segundo_parcial/CMSIS" -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/CMSIS/Include -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/CMSIS -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/devices/MK64F12 -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/devices -I"/Sistemas_Embebidos/Examen2/segundo_parcial/startup" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"source/CONVERSION.d" -MT"source/CONVERSION.o" -MT"source/CONVERSION.d" -o "source/CONVERSION.o" "../source/CONVERSION.c"
+Finished building: ../source/CONVERSION.c
+ 
+Building target: segundo_parcial.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -Xlinker -Map="segundo_parcial.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -T segundo_parcial_Debug.ld -o "segundo_parcial.axf"  ./startup/startup_mk64f12.o  ./source/CONVERSION.o ./source/GPIO.o ./source/GlobalFunctions.o ./source/NVIC.o ./source/PIT.o ./source/UART.o ./source/main.o  ./CMSIS/system_MK64F12.o   
+Memory region         Used Size  Region Size  %age Used
+   PROGRAM_FLASH:        6924 B         1 MB      0.66%
+      SRAM_UPPER:        8492 B       192 KB      4.32%
+      SRAM_LOWER:          0 GB        64 KB      0.00%
+        FLEX_RAM:          0 GB         4 KB      0.00%
+Finished building target: segundo_parcial.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "segundo_parcial.axf"; # arm-none-eabi-objcopy -v -O binary "segundo_parcial.axf" "segundo_parcial.bin" ; # checksum -p MK64FN1M0xxx12 -d "segundo_parcial.bin";
+   text	   data	    bss	    dec	    hex	filename
+   6924	      0	   8492	  15416	   3c38	segundo_parcial.axf
+ 
+19:51:35 **** Incremental Build of configuration Debug for project segundo_parcial ****
+make -r -j3 all 
+Building file: ../source/CONVERSION.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DCR_INTEGER_PRINTF -DSDK_DEBUGCONSOLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -DSDK_OS_BAREMETAL -DFSL_RTOS_BM -DCPU_MK64FN1M0VLL12 -DCPU_MK64FN1M0VLL12_cm4 -D__REDLIB__ -I"/Sistemas_Embebidos/Examen2/segundo_parcial/source" -I"/Sistemas_Embebidos/Examen2/segundo_parcial" -I"/Sistemas_Embebidos/Examen2/segundo_parcial/CMSIS" -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/CMSIS/Include -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/CMSIS -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/devices/MK64F12 -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/devices -I"/Sistemas_Embebidos/Examen2/segundo_parcial/startup" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"source/CONVERSION.d" -MT"source/CONVERSION.o" -MT"source/CONVERSION.d" -o "source/CONVERSION.o" "../source/CONVERSION.c"
+../source/CONVERSION.c: In function 'convertToMorse':
+../source/CONVERSION.c:25:7: error: 'a' undeclared (first use in this function)
+  case a:
+       ^
+../source/CONVERSION.c:25:7: note: each undeclared identifier is reported only once for each function it appears in
+../source/CONVERSION.c:27:7: error: 'b' undeclared (first use in this function)
+  case b:
+       ^
+../source/CONVERSION.c:31:7: error: 'c' undeclared (first use in this function)
+  case c:
+       ^
+../source/CONVERSION.c:33:7: error: 'd' undeclared (first use in this function)
+  case d:
+       ^
+../source/CONVERSION.c:35:7: error: 'e' undeclared (first use in this function)
+  case e:
+       ^
+../source/CONVERSION.c:37:7: error: 'f' undeclared (first use in this function)
+  case f:
+       ^
+../source/CONVERSION.c:39:7: error: 'g' undeclared (first use in this function)
+  case g:
+       ^
+../source/CONVERSION.c:41:7: error: 'h' undeclared (first use in this function)
+  case h:
+       ^
+../source/CONVERSION.c:43:7: error: 'i' undeclared (first use in this function)
+  case i:
+       ^
+../source/CONVERSION.c:45:7: error: 'j' undeclared (first use in this function)
+  case j:
+       ^
+../source/CONVERSION.c:47:7: error: 'k' undeclared (first use in this function)
+  case k:
+       ^
+../source/CONVERSION.c:49:7: error: 'l' undeclared (first use in this function)
+  case l:
+       ^
+../source/CONVERSION.c:51:7: error: 'm' undeclared (first use in this function)
+  case m:
+       ^
+../source/CONVERSION.c:53:7: error: 'n' undeclared (first use in this function)
+  case n:
+       ^
+../source/CONVERSION.c:55:7: error: 'o' undeclared (first use in this function)
+  case o:
+       ^
+../source/CONVERSION.c:57:7: error: 'p' undeclared (first use in this function)
+  case p:
+       ^
+../source/CONVERSION.c:59:7: error: 'q' undeclared (first use in this function)
+  case q:
+       ^
+../source/CONVERSION.c:61:7: error: 'r' undeclared (first use in this function)
+  case r:
+       ^
+../source/CONVERSION.c:63:7: error: 's' undeclared (first use in this function)
+  case s:
+       ^
+../source/CONVERSION.c:65:7: error: 't' undeclared (first use in this function)
+  case t:
+       ^
+../source/CONVERSION.c:67:7: error: 'u' undeclared (first use in this function)
+  case u:
+       ^
+../source/CONVERSION.c:69:7: error: 'v' undeclared (first use in this function)
+  case v:
+       ^
+../source/CONVERSION.c:71:7: error: 'w' undeclared (first use in this function)
+  case w:
+       ^
+../source/CONVERSION.c:73:7: error: 'x' undeclared (first use in this function)
+  case x:
+       ^
+../source/CONVERSION.c:75:7: error: 'y' undeclared (first use in this function)
+  case y:
+       ^
+../source/CONVERSION.c:77:7: error: 'z' undeclared (first use in this function)
+  case z:
+       ^
+make: *** [source/CONVERSION.o] Error 1
+19:54:40 **** Incremental Build of configuration Debug for project segundo_parcial ****
+make -r -j3 all 
+Building file: ../source/CONVERSION.c
+Building file: ../source/main.c
+Invoking: MCU C Compiler
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DCR_INTEGER_PRINTF -DSDK_DEBUGCONSOLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -DSDK_OS_BAREMETAL -DFSL_RTOS_BM -DCPU_MK64FN1M0VLL12 -DCPU_MK64FN1M0VLL12_cm4 -D__REDLIB__ -I"/Sistemas_Embebidos/Examen2/segundo_parcial/source" -I"/Sistemas_Embebidos/Examen2/segundo_parcial" -I"/Sistemas_Embebidos/Examen2/segundo_parcial/CMSIS" -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/CMSIS/Include -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/CMSIS -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/devices/MK64F12 -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/devices -I"/Sistemas_Embebidos/Examen2/segundo_parcial/startup" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"source/main.d" -MT"source/main.o" -MT"source/main.d" -o "source/main.o" "../source/main.c"
+arm-none-eabi-gcc -DCR_INTEGER_PRINTF -DSDK_DEBUGCONSOLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -DSDK_OS_BAREMETAL -DFSL_RTOS_BM -DCPU_MK64FN1M0VLL12 -DCPU_MK64FN1M0VLL12_cm4 -D__REDLIB__ -I"/Sistemas_Embebidos/Examen2/segundo_parcial/source" -I"/Sistemas_Embebidos/Examen2/segundo_parcial" -I"/Sistemas_Embebidos/Examen2/segundo_parcial/CMSIS" -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/CMSIS/Include -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/CMSIS -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/devices/MK64F12 -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/devices -I"/Sistemas_Embebidos/Examen2/segundo_parcial/startup" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"source/CONVERSION.d" -MT"source/CONVERSION.o" -MT"source/CONVERSION.d" -o "source/CONVERSION.o" "../source/CONVERSION.c"
+In file included from ../source/CONVERSION.c:11:0:
+../source/CONVERSION.h:37:8: error: no macro name given in #define directive
+../source/CONVERSION.c: In function 'convertToMorse':
+../source/CONVERSION.c:29:2: error: duplicate case value
+  case b:
+  ^
+../source/CONVERSION.c:27:2: error: previously used here
+  case b:
+  ^
+make: *** [source/CONVERSION.o] Error 1
+make: *** Waiting for unfinished jobs....
+../source/main.c: In function 'main':
+../source/main.c:41:2: warning: implicit declaration of function 'init' [-Wimplicit-function-declaration]
+  init();
+  ^
+../source/main.c:61:19: error: 'a' undeclared (first use in this function)
+       if((Data >= a) && (Data <= z)){/*! si el dato es un letra minuscula, se guarada como parte de la direccion*/
+                   ^
+../source/main.c:61:19: note: each undeclared identifier is reported only once for each function it appears in
+../source/main.c:61:34: error: 'z' undeclared (first use in this function)
+       if((Data >= a) && (Data <= z)){/*! si el dato es un letra minuscula, se guarada como parte de la direccion*/
+                                  ^
+../source/main.c:65:10: error: 'ENTER' undeclared (first use in this function)
+       if(ENTER == Data){/*!cuando se presiona ENTER se guardan los valores y se rompe el loop*/
+          ^
+../source/main.c:68:9: warning: implicit declaration of function 'convertToMorse' [-Wimplicit-function-declaration]
+         convertToMorse(text[i]);
+         ^
+make: *** [source/main.o] Error 1
+19:54:47 **** Incremental Build of configuration Debug for project segundo_parcial ****
+make -r -j3 all 
+Building file: ../source/CONVERSION.c
+Building file: ../source/main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DCR_INTEGER_PRINTF -DSDK_DEBUGCONSOLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -DSDK_OS_BAREMETAL -DFSL_RTOS_BM -DCPU_MK64FN1M0VLL12 -DCPU_MK64FN1M0VLL12_cm4 -D__REDLIB__ -I"/Sistemas_Embebidos/Examen2/segundo_parcial/source" -I"/Sistemas_Embebidos/Examen2/segundo_parcial" -I"/Sistemas_Embebidos/Examen2/segundo_parcial/CMSIS" -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/CMSIS/Include -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/CMSIS -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/devices/MK64F12 -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/devices -I"/Sistemas_Embebidos/Examen2/segundo_parcial/startup" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"source/CONVERSION.d" -MT"source/CONVERSION.o" -MT"source/CONVERSION.d" -o "source/CONVERSION.o" "../source/CONVERSION.c"
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DCR_INTEGER_PRINTF -DSDK_DEBUGCONSOLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -DSDK_OS_BAREMETAL -DFSL_RTOS_BM -DCPU_MK64FN1M0VLL12 -DCPU_MK64FN1M0VLL12_cm4 -D__REDLIB__ -I"/Sistemas_Embebidos/Examen2/segundo_parcial/source" -I"/Sistemas_Embebidos/Examen2/segundo_parcial" -I"/Sistemas_Embebidos/Examen2/segundo_parcial/CMSIS" -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/CMSIS/Include -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/CMSIS -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/devices/MK64F12 -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/devices -I"/Sistemas_Embebidos/Examen2/segundo_parcial/startup" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"source/main.d" -MT"source/main.o" -MT"source/main.d" -o "source/main.o" "../source/main.c"
+../source/CONVERSION.c: In function 'convertToMorse':
+../source/CONVERSION.c:29:2: error: duplicate case value
+  case b:
+  ^
+../source/CONVERSION.c:27:2: error: previously used here
+  case b:
+  ^
+make: *** [source/CONVERSION.o] Error 1
+make: *** Waiting for unfinished jobs....
+../source/main.c: In function 'main':
+../source/main.c:41:2: warning: implicit declaration of function 'init' [-Wimplicit-function-declaration]
+  init();
+  ^
+../source/main.c:61:19: error: 'a' undeclared (first use in this function)
+       if((Data >= a) && (Data <= z)){/*! si el dato es un letra minuscula, se guarada como parte de la direccion*/
+                   ^
+../source/main.c:61:19: note: each undeclared identifier is reported only once for each function it appears in
+../source/main.c:61:34: error: 'z' undeclared (first use in this function)
+       if((Data >= a) && (Data <= z)){/*! si el dato es un letra minuscula, se guarada como parte de la direccion*/
+                                  ^
+../source/main.c:65:10: error: 'ENTER' undeclared (first use in this function)
+       if(ENTER == Data){/*!cuando se presiona ENTER se guardan los valores y se rompe el loop*/
+          ^
+../source/main.c:68:9: warning: implicit declaration of function 'convertToMorse' [-Wimplicit-function-declaration]
+         convertToMorse(text[i]);
+         ^
+make: *** [source/main.o] Error 1
+19:55:09 **** Incremental Build of configuration Debug for project segundo_parcial ****
+make -r -j3 all 
+Building file: ../source/main.c
+Building file: ../source/CONVERSION.c
+Invoking: MCU C Compiler
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DCR_INTEGER_PRINTF -DSDK_DEBUGCONSOLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -DSDK_OS_BAREMETAL -DFSL_RTOS_BM -DCPU_MK64FN1M0VLL12 -DCPU_MK64FN1M0VLL12_cm4 -D__REDLIB__ -I"/Sistemas_Embebidos/Examen2/segundo_parcial/source" -I"/Sistemas_Embebidos/Examen2/segundo_parcial" -I"/Sistemas_Embebidos/Examen2/segundo_parcial/CMSIS" -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/CMSIS/Include -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/CMSIS -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/devices/MK64F12 -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/devices -I"/Sistemas_Embebidos/Examen2/segundo_parcial/startup" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"source/main.d" -MT"source/main.o" -MT"source/main.d" -o "source/main.o" "../source/main.c"
+arm-none-eabi-gcc -DCR_INTEGER_PRINTF -DSDK_DEBUGCONSOLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -DSDK_OS_BAREMETAL -DFSL_RTOS_BM -DCPU_MK64FN1M0VLL12 -DCPU_MK64FN1M0VLL12_cm4 -D__REDLIB__ -I"/Sistemas_Embebidos/Examen2/segundo_parcial/source" -I"/Sistemas_Embebidos/Examen2/segundo_parcial" -I"/Sistemas_Embebidos/Examen2/segundo_parcial/CMSIS" -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/CMSIS/Include -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/CMSIS -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/devices/MK64F12 -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/devices -I"/Sistemas_Embebidos/Examen2/segundo_parcial/startup" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"source/CONVERSION.d" -MT"source/CONVERSION.o" -MT"source/CONVERSION.d" -o "source/CONVERSION.o" "../source/CONVERSION.c"
+../source/CONVERSION.c: In function 'convertToMorse':
+../source/CONVERSION.c:29:2: error: duplicate case value
+  case b:
+  ^
+../source/CONVERSION.c:27:2: error: previously used here
+  case b:
+  ^
+make: *** [source/CONVERSION.o] Error 1
+make: *** Waiting for unfinished jobs....
+../source/main.c: In function 'main':
+../source/main.c:41:2: warning: implicit declaration of function 'init' [-Wimplicit-function-declaration]
+  init();
+  ^
+In file included from ../source/main.c:39:0:
+../source/CONVERSION.h:19:11: error: expected identifier or '(' before numeric constant
+ #define i 0x69
+           ^
+../source/main.c:50:17: note: in expansion of macro 'i'
+    static uint8 i;
+                 ^
+../source/main.c:67:14: error: lvalue required as left operand of assignment
+        for(i = 0; i < textCounter; i++){
+              ^
+../source/main.c:67:37: error: lvalue required as increment operand
+        for(i = 0; i < textCounter; i++){
+                                     ^
+make: *** [source/main.o] Error 1
+19:55:31 **** Incremental Build of configuration Debug for project segundo_parcial ****
+make -r -j3 all 
+Building file: ../source/CONVERSION.c
+Building file: ../source/main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DCR_INTEGER_PRINTF -DSDK_DEBUGCONSOLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -DSDK_OS_BAREMETAL -DFSL_RTOS_BM -DCPU_MK64FN1M0VLL12 -DCPU_MK64FN1M0VLL12_cm4 -D__REDLIB__ -I"/Sistemas_Embebidos/Examen2/segundo_parcial/source" -I"/Sistemas_Embebidos/Examen2/segundo_parcial" -I"/Sistemas_Embebidos/Examen2/segundo_parcial/CMSIS" -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/CMSIS/Include -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/CMSIS -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/devices/MK64F12 -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/devices -I"/Sistemas_Embebidos/Examen2/segundo_parcial/startup" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"source/CONVERSION.d" -MT"source/CONVERSION.o" -MT"source/CONVERSION.d" -o "source/CONVERSION.o" "../source/CONVERSION.c"
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DCR_INTEGER_PRINTF -DSDK_DEBUGCONSOLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -DSDK_OS_BAREMETAL -DFSL_RTOS_BM -DCPU_MK64FN1M0VLL12 -DCPU_MK64FN1M0VLL12_cm4 -D__REDLIB__ -I"/Sistemas_Embebidos/Examen2/segundo_parcial/source" -I"/Sistemas_Embebidos/Examen2/segundo_parcial" -I"/Sistemas_Embebidos/Examen2/segundo_parcial/CMSIS" -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/CMSIS/Include -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/CMSIS -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/devices/MK64F12 -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/devices -I"/Sistemas_Embebidos/Examen2/segundo_parcial/startup" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"source/main.d" -MT"source/main.o" -MT"source/main.d" -o "source/main.o" "../source/main.c"
+../source/CONVERSION.c: In function 'convertToMorse':
+../source/CONVERSION.c:29:2: error: duplicate case value
+  case b:
+  ^
+../source/CONVERSION.c:27:2: error: previously used here
+  case b:
+  ^
+make: *** [source/CONVERSION.o] Error 1
+make: *** Waiting for unfinished jobs....
+../source/main.c: In function 'main':
+../source/main.c:41:2: warning: implicit declaration of function 'init' [-Wimplicit-function-declaration]
+  init();
+  ^
+In file included from ../source/main.c:39:0:
+../source/CONVERSION.h:19:11: error: expected identifier or '(' before numeric constant
+ #define i 0x69
+           ^
+../source/main.c:50:17: note: in expansion of macro 'i'
+    static uint8 i;
+                 ^
+../source/main.c:67:14: error: lvalue required as left operand of assignment
+        for(i = 0; i < textCounter; i++){
+              ^
+../source/main.c:67:37: error: lvalue required as increment operand
+        for(i = 0; i < textCounter; i++){
+                                     ^
+make: *** [source/main.o] Error 1
+19:55:50 **** Incremental Build of configuration Debug for project segundo_parcial ****
+make -r -j3 all 
+Building file: ../source/CONVERSION.c
+Building file: ../source/main.c
+Invoking: MCU C Compiler
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DCR_INTEGER_PRINTF -DSDK_DEBUGCONSOLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -DSDK_OS_BAREMETAL -DFSL_RTOS_BM -DCPU_MK64FN1M0VLL12 -DCPU_MK64FN1M0VLL12_cm4 -D__REDLIB__ -I"/Sistemas_Embebidos/Examen2/segundo_parcial/source" -I"/Sistemas_Embebidos/Examen2/segundo_parcial" -I"/Sistemas_Embebidos/Examen2/segundo_parcial/CMSIS" -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/CMSIS/Include -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/CMSIS -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/devices/MK64F12 -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/devices -I"/Sistemas_Embebidos/Examen2/segundo_parcial/startup" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"source/CONVERSION.d" -MT"source/CONVERSION.o" -MT"source/CONVERSION.d" -o "source/CONVERSION.o" "../source/CONVERSION.c"
+arm-none-eabi-gcc -DCR_INTEGER_PRINTF -DSDK_DEBUGCONSOLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -DSDK_OS_BAREMETAL -DFSL_RTOS_BM -DCPU_MK64FN1M0VLL12 -DCPU_MK64FN1M0VLL12_cm4 -D__REDLIB__ -I"/Sistemas_Embebidos/Examen2/segundo_parcial/source" -I"/Sistemas_Embebidos/Examen2/segundo_parcial" -I"/Sistemas_Embebidos/Examen2/segundo_parcial/CMSIS" -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/CMSIS/Include -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/CMSIS -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/devices/MK64F12 -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/devices -I"/Sistemas_Embebidos/Examen2/segundo_parcial/startup" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"source/main.d" -MT"source/main.o" -MT"source/main.d" -o "source/main.o" "../source/main.c"
+../source/main.c: In function 'main':
+../source/main.c:41:2: warning: implicit declaration of function 'init' [-Wimplicit-function-declaration]
+  init();
+  ^
+In file included from ../source/main.c:39:0:
+../source/CONVERSION.h:19:11: error: expected identifier or '(' before numeric constant
+ #define i 0x69
+           ^
+../source/main.c:50:17: note: in expansion of macro 'i'
+    static uint8 i;
+                 ^
+../source/main.c:67:14: error: lvalue required as left operand of assignment
+        for(i = 0; i < textCounter; i++){
+              ^
+../source/main.c:67:37: error: lvalue required as increment operand
+        for(i = 0; i < textCounter; i++){
+                                     ^
+make: *** [source/main.o] Error 1
+make: *** Waiting for unfinished jobs....
+Finished building: ../source/CONVERSION.c
+ 
+19:56:14 **** Incremental Build of configuration Debug for project segundo_parcial ****
+make -r -j3 all 
+Building file: ../source/main.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DCR_INTEGER_PRINTF -DSDK_DEBUGCONSOLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -DSDK_OS_BAREMETAL -DFSL_RTOS_BM -DCPU_MK64FN1M0VLL12 -DCPU_MK64FN1M0VLL12_cm4 -D__REDLIB__ -I"/Sistemas_Embebidos/Examen2/segundo_parcial/source" -I"/Sistemas_Embebidos/Examen2/segundo_parcial" -I"/Sistemas_Embebidos/Examen2/segundo_parcial/CMSIS" -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/CMSIS/Include -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/CMSIS -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/devices/MK64F12 -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/devices -I"/Sistemas_Embebidos/Examen2/segundo_parcial/startup" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"source/main.d" -MT"source/main.o" -MT"source/main.d" -o "source/main.o" "../source/main.c"
+../source/main.c: In function 'main':
+../source/main.c:41:2: warning: implicit declaration of function 'init' [-Wimplicit-function-declaration]
+  init();
+  ^
+Finished building: ../source/main.c
+ 
+Building target: segundo_parcial.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -Xlinker -Map="segundo_parcial.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -T segundo_parcial_Debug.ld -o "segundo_parcial.axf"  ./startup/startup_mk64f12.o  ./source/CONVERSION.o ./source/GPIO.o ./source/GlobalFunctions.o ./source/NVIC.o ./source/PIT.o ./source/UART.o ./source/main.o  ./CMSIS/system_MK64F12.o   
+Memory region         Used Size  Region Size  %age Used
+   PROGRAM_FLASH:        7040 B         1 MB      0.67%
+      SRAM_UPPER:        8492 B       192 KB      4.32%
+      SRAM_LOWER:          0 GB        64 KB      0.00%
+        FLEX_RAM:          0 GB         4 KB      0.00%
+Finished building target: segundo_parcial.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "segundo_parcial.axf"; # arm-none-eabi-objcopy -v -O binary "segundo_parcial.axf" "segundo_parcial.bin" ; # checksum -p MK64FN1M0xxx12 -d "segundo_parcial.bin";
+   text	   data	    bss	    dec	    hex	filename
+   7040	      0	   8492	  15532	   3cac	segundo_parcial.axf
+ 
+19:57:05 **** Incremental Build of configuration Debug for project segundo_parcial ****
+make -r -j3 all 
+Building file: ../source/CONVERSION.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -DCR_INTEGER_PRINTF -DSDK_DEBUGCONSOLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -DSDK_OS_BAREMETAL -DFSL_RTOS_BM -DCPU_MK64FN1M0VLL12 -DCPU_MK64FN1M0VLL12_cm4 -D__REDLIB__ -I"/Sistemas_Embebidos/Examen2/segundo_parcial/source" -I"/Sistemas_Embebidos/Examen2/segundo_parcial" -I"/Sistemas_Embebidos/Examen2/segundo_parcial/CMSIS" -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/CMSIS/Include -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/CMSIS -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/devices/MK64F12 -I/Users/Roberto/mcuxpresso/SDKPackages/SDK_2/devices -I"/Sistemas_Embebidos/Examen2/segundo_parcial/startup" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -D__REDLIB__ -specs=redlib.specs -MMD -MP -MF"source/CONVERSION.d" -MT"source/CONVERSION.o" -MT"source/CONVERSION.d" -o "source/CONVERSION.o" "../source/CONVERSION.c"
+Finished building: ../source/CONVERSION.c
+ 
+Building target: segundo_parcial.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -Xlinker -Map="segundo_parcial.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -T segundo_parcial_Debug.ld -o "segundo_parcial.axf"  ./startup/startup_mk64f12.o  ./source/CONVERSION.o ./source/GPIO.o ./source/GlobalFunctions.o ./source/NVIC.o ./source/PIT.o ./source/UART.o ./source/main.o  ./CMSIS/system_MK64F12.o   
+Memory region         Used Size  Region Size  %age Used
+   PROGRAM_FLASH:        7040 B         1 MB      0.67%
+      SRAM_UPPER:        8492 B       192 KB      4.32%
+      SRAM_LOWER:          0 GB        64 KB      0.00%
+        FLEX_RAM:          0 GB         4 KB      0.00%
+Finished building target: segundo_parcial.axf
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "segundo_parcial.axf"; # arm-none-eabi-objcopy -v -O binary "segundo_parcial.axf" "segundo_parcial.bin" ; # checksum -p MK64FN1M0xxx12 -d "segundo_parcial.bin";
+   text	   data	    bss	    dec	    hex	filename
+   7040	      0	   8492	  15532	   3cac	segundo_parcial.axf
+ 
