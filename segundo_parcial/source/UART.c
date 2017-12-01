@@ -1,0 +1,288 @@
+/*
+ * UART.c
+ *
+ * 		I.	T.	E.	S.	O.
+ * Sistemas con Microcontroladores y DSP's
+ *
+ *Author: Rene Rantos , Roberto Flores
+ *
+ */
+
+#include "UART.h"
+#include "Nvic.h"
+//#include "GlobalFunctions.h"
+#include "gpio.h"
+#include "TeraTerm.h"
+
+
+UART_MailBoxType UART0_MailBox;
+
+void UART_init(UART_ChannelType uartChannel, uint32 systemClk, UART_BaudRateType baudRate){
+	uint32 SBR = 0;
+	uint8 brfa=0;
+	switch(uartChannel){
+		case UART_0:
+			SIM->SCGC4|=SIM_SCGC4_UART0_MASK;
+
+			SBR = (uint16)((systemClk)/(baudRate * 16));
+			brfa = (uint8)(2*((systemClk)/(baudRate)) - (SBR * 32));
+			brfa &= 0x1F;
+
+			UART0->C2 &= ~(UART_C2_TE_MASK | UART_C2_RE_MASK );
+			UART0->BDH |= (((SBR & 0x1F00) >> 8));
+			UART0->BDL = (uint8)(SBR & 0x00FF);
+			UART0->C4 |= brfa;
+ 			UART0->C2 |= (UART_C2_TE_MASK | UART_C2_RE_MASK );
+			break;
+		case UART_1:
+			SIM->SCGC4|=SIM_SCGC4_UART1_MASK;
+
+			SBR = (uint16)((systemClk)/(baudRate * 16));
+			brfa = (uint8)(2*((systemClk)/(baudRate)) - (SBR * 32));
+			brfa &= 0x1F;
+
+			UART1->C2 &= ~(UART_C2_TE_MASK | UART_C2_RE_MASK );
+			UART1->BDH |= (((SBR & 0x1F00) >> 8));
+			UART1->BDL = (uint8)(SBR & 0x00FF);
+			UART1->C4 |= brfa;
+			UART1->C2 |= (UART_C2_TE_MASK | UART_C2_RE_MASK );
+		break;
+		case UART_2:
+			SIM->SCGC4|=SIM_SCGC4_UART2_MASK;
+
+			SBR = (uint16)((systemClk)/(baudRate * 16));
+			brfa = (uint8)(2*((systemClk)/(baudRate)) - (SBR * 32));
+			brfa &= 0x1F;
+
+			UART2->C2 &= ~(UART_C2_TE_MASK | UART_C2_RE_MASK );
+			UART2->BDH |= (((SBR & 0x1F00) >> 8));
+			UART2->BDL = (uint8)(SBR & 0x00FF);
+			UART2->C4 |= brfa;
+			UART2->C2 |= (UART_C2_TE_MASK | UART_C2_RE_MASK );
+		break;
+		case UART_3:
+			SIM->SCGC4|=SIM_SCGC4_UART3_MASK;
+
+			SBR = (uint16)((systemClk)/(baudRate * 16));
+			brfa = (uint8)(2*((systemClk)/(baudRate)) - (SBR * 32));
+			brfa &= 0x1F;
+
+			UART3->C2 &= ~(UART_C2_TE_MASK | UART_C2_RE_MASK );
+			UART3->BDH |= (((SBR & 0x1F00) >> 8));
+			UART3->BDL = (uint8)(SBR & 0x00FF);
+			UART3->C4 |= brfa;
+			UART3->C2 |= (UART_C2_TE_MASK | UART_C2_RE_MASK );
+		break;
+		case UART_4:
+			SIM->SCGC1 |= SIM_SCGC1_UART4_MASK;
+
+			SBR = (uint16)((systemClk)/(baudRate * 16));
+			brfa = (uint8)(2*((systemClk)/(baudRate)) - (SBR * 32));
+			brfa &= 0x1F;
+
+			UART4->C2 &= ~(UART_C2_TE_MASK | UART_C2_RE_MASK );
+			UART4->BDH |= (((SBR & 0x1F00) >> 8));
+			UART4->BDL = (uint8)(SBR & 0x00FF);
+			UART4->C4 |= brfa;
+			UART4->C2 |= (UART_C2_TE_MASK | UART_C2_RE_MASK );
+		break;
+		case UART_5:
+			SIM->SCGC1 |= SIM_SCGC1_UART5_MASK;
+
+			SBR = (uint16)((systemClk)/(baudRate * 16));
+			brfa = (uint8)(2*((systemClk)/(baudRate)) - (SBR * 32));
+			brfa &= 0x1F;
+
+			UART5->C2 &= ~(UART_C2_TE_MASK | UART_C2_RE_MASK );
+			UART5->BDH |= (((SBR & 0x1F00) >> 8));
+			UART5->BDL = (uint8)(SBR & 0x00FF);
+			UART5->C4 |= brfa;
+			UART5->C2 |= (UART_C2_TE_MASK | UART_C2_RE_MASK );
+		break;
+	}
+}
+/**!
+ * Activates the the interrupt bit enable for any UART channel
+ * @param uartChannel
+ */
+
+void UART_SetPCR(UART_ChannelType UARTChannel){
+	switch(UARTChannel){
+	case UART_0:
+		/**Enables the clock of PortB in order to configures TX and RX of UART peripheral*/
+		GPIO_clockGating(GPIO_B); /** Activa clockGating de PuertoB */
+		PORTB->PCR[16] |= PORT_PCR_MUX(3); 	/**Enable pin for UART0Rx*/
+		PORTB->PCR[17] |= PORT_PCR_MUX(3);		/**Enable pin for UART0Tx*/
+		UART_init(UART_0, SystemClock, BD_9600);
+		/**Enables the UART 0 interrupt*/
+		UART_interruptEnable(UART_0);
+		/**Enables the UART 0 interrupt in the NVIC*/
+		NVIC_enableInterruptAndPriotity(UART0_IRQ, PRIORITY_10);
+	break;
+	case UART_4:
+		/**Enables the clock of PortC in order to configures TX and RX of UART peripheral*/
+		GPIO_clockGating(GPIO_C); /**Activa clockGating de PuertoC */
+		PORTC->PCR[14] |= PORT_PCR_MUX(3); 		/**Enable pin for UART4Tx*/
+		PORTC->PCR[15] |= PORT_PCR_MUX(3);		/**Enable pin for UART4Rx*/
+		UART_init(UART_4, SystemClock, BD_9600);
+		/**Enables the UART 0 interrupt*/
+		UART_interruptEnable(UART_4);
+		/**Enables the UART 0 interrupt in the NVIC*/
+		NVIC_enableInterruptAndPriotity(UART4_IRQ, PRIORITY_10);
+	break;
+	}
+
+}
+
+void UART_interruptEnable(UART_ChannelType uartChannel){
+	switch(uartChannel){
+			case UART_0:
+				UART0->C2 |= UART_C2_RIE_MASK;
+			break;
+			case UART_1:
+				UART1->C2 |= UART_C2_RIE_MASK;
+			break;
+			case UART_2:
+				UART2->C2 |= UART_C2_RIE_MASK;
+			break;
+			case UART_3:
+				UART3->C2 |= UART_C2_RIE_MASK;
+			break;
+			case UART_4:
+				UART4->C2 |= UART_C2_RIE_MASK;
+			break;
+			case UART_5:
+				UART5->C2 |= UART_C2_RIE_MASK;
+			break;
+	}
+}
+/**1!brief
+ * Thiss function recibes a character and sends it to a UART channel
+ * @param uartChannel output UART Channel
+ * @param character
+ */
+
+void UART_putChar (UART_ChannelType uartChannel, uint8 character){
+	switch(uartChannel){
+			case UART_0:
+				 while(!(UART0->S1 & UART_S1_TC_MASK)){
+				}
+				UART0->D = character;
+			break;
+			case UART_1:
+				 while(!(UART1->S1 & UART_S1_TC_MASK)){
+				}
+				UART1->D = character;
+			break;
+			case UART_2:
+				 while(!(UART2->S1 & UART_S1_TC_MASK)){
+				}
+				UART2->D = character;
+			break;
+			case UART_3:
+				 while(!(UART3->S1 & UART_S1_TC_MASK)){
+				}
+				UART3->D = character;
+			break;
+			case UART_4:
+				 while(!(UART4->S1 & UART_S1_TC_MASK)){
+				}
+				UART4->D = character;
+			break;
+			case UART_5:
+				while(!(UART5->S1 & UART_S1_TC_MASK)){
+				}
+				UART5->D = character;
+			break;
+	}
+}
+/**!
+ * This functions recives a complete sting and sends it to the chosen UART Channel
+ * @param uartChannel Output channel
+ * @param ptr_str pointer to an array of data
+ */
+uint16 i = 0;
+void UART_putString(UART_ChannelType uartChannel, sint8* string){
+	switch(uartChannel){
+			case UART_0:
+				for(i = 0; string[i] != '\0'; i++){
+					UART_putChar(UART_0,string[i]);
+				}
+			break;
+			case UART_1:
+				for(i = 0; string[i] != '\0'; i++){
+					UART_putChar(UART_1,string[i]);
+				}
+			break;
+			case UART_2:
+				for(i = 0; string[i] != '\0'; i++){
+					UART_putChar(UART_2,string[i]);
+				}
+			break;
+			case UART_3:
+				for(i = 0; string[i] != '\0'; i++){
+					UART_putChar(UART_3,string[i]);
+				}
+			break;
+			case UART_4:
+				for(i = 0; string[i] != '\0'; i++){
+					UART_putChar(UART_4,string[i]);
+				}
+			break;
+			case UART_5:
+				for(i = 0; string[i] != '\0'; i++){
+					UART_putChar(UART_5,string[i]);
+				}
+			break;
+	}
+}
+/** This functions compares the flag of a specific UART Channel and returns de mailBox value in case there�s a valid data */
+uint8 UART_CheckMailBox(UART_ChannelType Channel ){
+	switch(Channel){
+	case UART_0:
+		if(UART0_MailBox.flag){
+			UART_putChar(UART_0, UART0_MailBox.mailBox);
+			UART0_MailBox.flag = 0;
+			return UART0_MailBox.mailBox;
+		} else
+			return 0;
+	break;
+	default:
+		return 0;
+		break;
+	}
+
+}
+
+void UART0_RX_TX_IRQHandler()
+{
+	uint8 dummyReading;
+	if (UART0->S1 & UART_S1_RDRF_MASK){
+	UART0->S2 |= 0x40;
+	dummyReading = UART0->S1;
+	UART0_MailBox.mailBox = UART0->D;
+	UART0_MailBox.flag = 1;
+	}
+}
+
+uint8 stateCheck(void){
+//	if(UART0_MailBox.flag){
+		if((UART0_MailBox.mailBox >= 0x31) && (UART0_MailBox.mailBox <= 0x34)){
+			return UART0_MailBox.mailBox;
+		}
+		else if(ESC == UART0_MailBox.mailBox){
+			return ESC;
+		}
+		else if(ENTER == UART0_MailBox.mailBox){
+			return ENTER;
+		}else{
+			return 0x30;
+		}
+//	}else{
+//		return 0x30;
+//	}
+}
+
+BooleanType checkMailBoxFlag(void){
+	return UART0_MailBox.flag;
+}
