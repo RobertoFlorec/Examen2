@@ -1,0 +1,11 @@
+/*
+ * CONVERSION.c
+ *
+ *  Created on: 30/11/2017
+ *      Author: Roberto
+ */
+
+void convertToMorse(uint8 text){
+
+}
+

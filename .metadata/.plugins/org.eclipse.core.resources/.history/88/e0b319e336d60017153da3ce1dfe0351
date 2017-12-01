@@ -35,14 +35,13 @@
 #include <stdio.h>
 #include "UART.h"
 #include "MK64F12.h"
-#include "GlobalFunctions.h"
 #define a 0x61
 #define z 0x7A
 #define ENTER 0X0D
 
 int main(void) {
-	init();
 
+	UART_SetPCR(UART_0);
 
 
 
@@ -50,7 +49,6 @@ int main(void) {
 	/***********************************************************/
 			static uint8 text[100]; /*! Arreglo para guardar lo que se escriba*/
 			static uint8 textCounter = 0;
-			static uint8 i;
 			uint8 Data;
 			while(1){
 			UART_putString(UART_0,"\033[2;10H");/** Comando para posicionar el cursor en la posici�n x e y */

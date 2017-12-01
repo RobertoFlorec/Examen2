@@ -41,8 +41,8 @@
 #define ENTER 0X0D
 
 int main(void) {
-	init();
 
+	UART_SetPCR(UART_0);
 
 
 

@@ -35,48 +35,13 @@
 #include <stdio.h>
 #include "UART.h"
 #include "MK64F12.h"
-#include "GlobalFunctions.h"
-#define a 0x61
-#define z 0x7A
-#define ENTER 0X0D
+
 
 int main(void) {
-	init();
 
+	UART_SetPCR(UART_0);
 
-
-
-
-	/***********************************************************/
-			static uint8 text[100]; /*! Arreglo para guardar lo que se escriba*/
-			static uint8 textCounter = 0;
-			static uint8 i;
-			uint8 Data;
-			while(1){
-			UART_putString(UART_0,"\033[2;10H");/** Comando para posicionar el cursor en la posici�n x e y */
-			UART_putString(UART_0, "Escribir Texto");/** Imprime secuencia */
-			UART_putString(UART_0,"\033[3;10H");
-
-
-					while(1){/*! se queda esperando datos hasta que se presiona ENTER o ESC*/
-						Data = UART_CheckMailBox(UART_0);
-
-						if((Data >= a) && (Data <= z)){/*! si el dato es un letra minuscula, se guarada como parte de la direccion*/
-							text[textCounter] = Data;
-							textCounter++;
-						}
-						if(ENTER == Data){/*!cuando se presiona ENTER se guardan los valores y se rompe el loop*/
-
-							for(i = 0; i < textCounter; i++){
-								convertToMorse(text[i]);
-								delay(65000);
-							}
-								textCounter = 0;
-							break;
-						}
-						delay(65000);
-					}
-	/***********************************************************/
+    while(1) {
 
     }
 

@@ -1,0 +1,15 @@
+/*
+ * CONVERSION.c
+ *
+ *  Created on: 30/11/2017
+ *      Author: Roberto
+ */
+#include "DataTypeDefinitions.h"
+#include "PIT.h"
+
+void convertToMorse(uint8 text){
+
+
+
+}
+
